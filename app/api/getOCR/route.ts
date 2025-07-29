@@ -20,9 +20,16 @@ export async function GET() {
 
   const status = majorIssues.some(issue => ocrData[issue] === "NOK") ? "FAIL" : "PASS"
 
-  return NextResponse.json({
+  const response = NextResponse.json({
     ocrData,
     status
   })
+
+  // Add CORS headers
+  response.headers.set('Access-Control-Allow-Origin', '*')
+  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')
+  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization')
+
+  return response
 
 }

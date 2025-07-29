@@ -7,9 +7,9 @@ export async function GET() {
   let failedItem: string | null = null;
   const randomPercent = Math.random() * 100;
 
-  if (randomPercent < 10) { // 10% chance of major failure
+  if (randomPercent < 30) { // 10% chance of major failure
     failedItem = majorIssues[Math.floor(Math.random() * majorIssues.length)];
-  } else if (randomPercent < 30) { // 20% chance of minor issue
+  } else if (randomPercent < 60) { // 20% chance of minor issue
     failedItem = minorIssues[Math.floor(Math.random() * minorIssues.length)];
   }
 
